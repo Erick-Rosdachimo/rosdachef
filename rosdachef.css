@@ -1,0 +1,408 @@
+/*====  REINICIAT  ============================ */
+* {
+  margin: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/*====  VARIABLES ============================ */
+:root {
+  --fundoescuro: #4d1114;
+  --menu-color: #fff;
+  --laranja: #f16a27;
+  --black: #000;
+  --fundoclaro: #fdfada;
+  --title-size: 3.05rem;
+  --laranja-claro: #f9b269;
+}
+
+/*====  PADRAO  ============================ */
+
+footer {
+  border-top: 7px solid #5b5252;
+  height: 120px;
+  background-color: #443d3e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  color: var(--menu-color);
+}
+
+footer p {
+  font-size: 20px;
+  font-family: 'Italianno', cursive;
+  text-align: center;
+  line-height: 1.6em;
+}
+
+.moldura-top {
+  width: 12.43rem;
+
+  z-index: 2;
+  margin-bottom: -120px;
+  padding-top: 22px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+#header {
+  display: flex;
+  z-index: 100;
+  width: 100%;
+
+  border-bottom: 4px solid var(--menu-color);
+}
+
+nav {
+  height: 6.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+nav ul li:not(:first-child) {
+  padding-left: 2rem;
+}
+
+nav ul li {
+  padding-right: 4px;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row;
+}
+
+nav ul li a {
+  font-family: 'Italianno', cursive;
+  font-weight: bold;
+  font-size: 33px;
+  color: var(--menu-color);
+}
+
+.logo {
+  font-family: 'Italianno', cursive;
+  font-weight: bold;
+  font-size: 33px;
+  color: var(--menu-color);
+  padding-right: 10px;
+}
+
+.logo span {
+  color: var(--laranja);
+}
+
+.banner {
+  background-image: url('assets/images/AdobeStock_100140350-scaled.jpeg');
+  height: 90vh;
+  width: 100vw;
+
+  background-size: cover;
+}
+
+.banner .overlay {
+  background-color: rgba(0, 0, 0, 0.58);
+  height: 90vh;
+}
+
+.divisor {
+  width: 100vw;
+  height: 10vh;
+  background: var(--fundoescuro);
+}
+
+.divisor-section {
+  width: 100vw;
+  height: 17vh;
+  background: var(--fundoescuro);
+}
+
+.section-clara {
+  background-color: var(--fundoclaro);
+}
+
+.section-escura {
+  background-color: var(--fundoescuro);
+}
+
+.title {
+  font-size: var(--title-size);
+  text-align: center;
+  font-family: 'italianno', cursive;
+  font-weight: normal;
+}
+
+.divisor-icon {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/*====   PRATO DO DIA  ============================ */
+
+.pdd-header {
+  margin-bottom: 3.1rem;
+}
+
+.pdd-header .title {
+  font-family: 'Italianno', cursive;
+  font-weight: 500;
+  color: var(--black);
+  text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.72);
+  text-align: center;
+  margin-bottom: -12px;
+}
+
+.subtitle {
+  color: var(--laranja);
+  font-size: 1.5rem;
+  font-family: 'Bad Script', cursive;
+  text-align: center;
+}
+
+hr {
+  width: 27rem;
+  margin: 0 auto;
+
+  border-top: 1px solid black;
+}
+
+.pdd {
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+.inf-pdd {
+  width: 50%;
+  position: relative;
+  padding-bottom: 100px;
+}
+
+.inf-pdd::after {
+  content: url('assets/images/moldura-bottom.png');
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.img-pdd {
+  width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+.img-pdd img {
+  width: 420px;
+  height: 274.2px;
+  border-radius: 23px;
+  box-shadow: 6px 7px 3px 0px rgba(0, 0, 0, 0.5);
+}
+
+.inf-pdd .title {
+  font-family: 'Italianno', cursive;
+  font-weight: normal;
+  text-align: center;
+  margin-bottom: -5px;
+}
+
+.inf-pdd p {
+  font-family: 'Bad Script', cursive;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.box-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.btn {
+  color: var(--menu-color);
+  background-color: var(--laranja);
+  font-family: 'bad script', cursive;
+  font-size: 18px;
+  padding: 1px 25px;
+  border-radius: 13px;
+  margin: 0 auto;
+
+  z-index: 100;
+  display: flex;
+}
+
+/*====   NOSSA CHEF  ============================ */
+
+.nossa-chef {
+  display: flex;
+  flex-direction: row;
+}
+
+.chef {
+  width: 55vw;
+  padding-bottom: 25px;
+}
+
+.chef .title {
+  line-height: 1.2em;
+  padding-top: 22px;
+  margin-bottom: -5px;
+}
+
+.chef-img-box {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.chef-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 2px solid black;
+}
+
+.chef-detalhes {
+  display: flex;
+  padding-top: 15px;
+  flex-direction: column;
+}
+
+.chef-detalhes h3 {
+  font-size: 32px;
+  font-family: 'Bad Script', cursive;
+  color: #f16a27;
+  text-align: center;
+}
+
+.chef-detalhes p {
+  font-size: 20px;
+  font-family: 'Bad Script', cursive;
+  text-align: center;
+}
+
+.img-cozinha-box {
+  width: 45vw;
+  background-image: url('assets/images/chef-cozinha.jpeg');
+  background-size: cover;
+  background-position: left;
+}
+
+/*====   QUALIDADES   ============================ */
+
+.qualidades {
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.qualidades-flex {
+  display: flex;
+  align-items: flex-start;
+}
+
+.qualidade {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 17px;
+  width: 33.333%;
+}
+
+.qualidade p:first-of-type {
+  font-size: 24px;
+  font-family: 'Quicksand', sans-serif;
+  color: var(--laranja-claro);
+}
+
+.qualidade p:last-of-type {
+  font-size: 1.2rem;
+  font-family: 'Bad Script', cursive;
+  color: var(--menu-color);
+}
+
+.qualidade p {
+  text-align: center;
+  padding-top: 15px;
+}
+
+.qualidade img {
+  height: 100px;
+  margin: auto;
+}
+
+/*====   QUALIDADES   ============================ */
+
+.depoimentos {
+  padding-top: 22px;
+}
+
+.depoimentos h2 {
+  padding-bottom: -5px;
+}
+
+.box-depoimentos {
+  display: flex;
+  align-items: flex-start;
+  padding-top: 22px;
+}
+
+.depoimento {
+  width: 33.333%;
+  padding: 0 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 22px;
+}
+
+.box-foto-depoimento {
+  display: flex;
+  justify-content: center;
+}
+
+.foto-depoimento {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  background-color: aqua;
+}
+
+.name {
+  font-size: 30px;
+  font-family: 'Bad Script', cursive;
+  text-align: center;
+  padding-top: 25px;
+}
+
+.text {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 18px;
+  text-align: center;
+  padding-top: 13px;
+  font-weight: 300;
+}
+
+.estrela {
+  width: 300px;
+  padding-top: 30px;
+}
