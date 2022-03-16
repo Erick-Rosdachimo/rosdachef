@@ -14,18 +14,7 @@ ul {
   list-style: none;
 }
 
-/*====  VARIABLES ============================ */
-:root {
-  --fundoescuro: #4d1114;
-  --menu-color: #fff;
-  --laranja: #f16a27;
-  --black: #000;
-  --fundoclaro: #fdfada;
-  --title-size: 3.05rem;
-  --laranja-claro: #f9b269;
-}
-
-/*====  PADRAO  ============================ */
+/*===================    HEADER AND FOOTER    =================== */
 
 footer {
   border-top: 7px solid #5b5252;
@@ -45,19 +34,6 @@ footer p {
   font-family: 'Italianno', cursive;
   text-align: center;
   line-height: 1.6em;
-}
-
-.moldura-top {
-  width: 12.43rem;
-
-  z-index: 2;
-  margin-bottom: -120px;
-  padding-top: 22px;
-}
-
-.container {
-  max-width: 1000px;
-  margin: auto;
 }
 
 #header {
@@ -119,6 +95,32 @@ nav ul li a {
 .banner .overlay {
   background-color: rgba(0, 0, 0, 0.58);
   height: 90vh;
+}
+
+/*====  VARIABLES ============================ */
+:root {
+  --fundoescuro: #5c171d;
+  --menu-color: #fff;
+  --laranja: #f16a27;
+  --black: #000;
+  --fundoclaro: #fdfada;
+  --title-size: 3.05rem;
+  --laranja-claro: #f9b269;
+}
+
+/*====  PADRAO  ============================ */
+
+.moldura-top {
+  width: 12.43rem;
+
+  z-index: 2;
+  margin-bottom: -120px;
+  padding-top: 22px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
 }
 
 .divisor {
@@ -241,7 +243,8 @@ hr {
   background-color: var(--laranja);
   font-family: 'bad script', cursive;
   font-size: 18px;
-  padding: 1px 25px;
+  font-weight: bold;
+  padding: 1px 20px;
   border-radius: 13px;
   margin: 0 auto;
 
