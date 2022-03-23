@@ -12,6 +12,7 @@ a {
 
 ul {
   list-style: none;
+  padding-inline-start: 0px;
 }
 
 /*===================    HEADER AND FOOTER    =================== */
@@ -23,6 +24,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 5px;
 }
 
 .footer {
@@ -87,7 +89,7 @@ nav ul li a {
 .banner {
   background-image: url('assets/images/AdobeStock_100140350-scaled.jpeg');
   height: 90vh;
-  width: 100vw;
+  width: 100%;
 
   background-size: cover;
 }
@@ -97,40 +99,154 @@ nav ul li a {
   height: 90vh;
 }
 
+nav.show .menu {
+  position: fixed;
+  background-color: var(--fundoclaro);
+  top: 0;
+  right: 0;
+  width: 60vw;
+  z-index: 9;
+  height: 100vh;
+}
+
+nav.show ul {
+  flex-direction: column;
+  padding-top: 67px;
+}
+
+nav.show ul li {
+  padding: 0;
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+nav.show ul li:not(:first-child) {
+  padding-top: 20px;
+}
+
+nav.show ul li a {
+  color: var(--laranja);
+}
+
+.toggle {
+  font-size: 25px;
+  color: var(--menu-color);
+  cursor: pointer;
+}
+
+.show .icon-menu {
+  display: none;
+}
+
+nav.show {
+  position: relative;
+}
+
+.icon-close {
+  color: var(--laranja);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show .icon-close {
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+  position: fixed;
+}
+
+@media (min-width: 700px) {
+  .toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu {
+    display: none;
+  }
+
+  nav.show .menu {
+    display: block;
+  }
+
+  .icon-close {
+    display: none;
+  }
+
+  .show .icon-close {
+    right: 20px;
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .show .icon-close {
+    right: 10px;
+  }
+}
+@media (max-width: 430px) {
+  .show .icon-close {
+    right: 5px;
+  }
+
+  .footer p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 340px) {
+  .show .icon-close {
+    right: 2.5px;
+  }
+}
+
 /*====  VARIABLES ============================ */
 :root {
   --fundoescuro: #5c171d;
   --menu-color: #fff;
-  --laranja: #f16a27;
+  --laranja: #f16b27;
   --black: #000;
   --fundoclaro: #fdfada;
-  --title-size: 3.05rem;
+  --title-size: 2.6rem;
+  --title-size-600px: 2.3rem;
+  --title-size-340px: 31px;
   --laranja-claro: #f9b269;
+  --background-sobremesas: #834444;
 }
 
 /*====  PADRAO  ============================ */
 
 .moldura-top {
   width: 12.43rem;
-
   z-index: 2;
-  margin-bottom: -120px;
   padding-top: 22px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.moldura-bottom {
+  position: absolute;
+  right: 0;
+  bottom: 22px;
 }
 
 .container {
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
+  position: relative;
 }
 
 .divisor {
-  width: 100vw;
+  width: 100%;
   height: 10vh;
   background: var(--fundoescuro);
+  overflow-x: hidden;
 }
 
 .divisor-section {
-  width: 100vw;
+  width: 100%;
   height: 17vh;
   background: var(--fundoescuro);
 }
@@ -151,15 +267,95 @@ nav ul li a {
 }
 
 .divisor-icon {
-  display: flex;
-  justify-content: center;
   margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
+
+.container-margin {
+  margin: 0 40px;
+  display: flex;
+  padding-bottom: 20px;
+}
+
+@media (max-width: 1040px) {
+  .container {
+    width: calc(100% - 40px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container-margin {
+    margin: 0 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 20px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .container-margin {
+    margin: 0 10px;
+  }
+
+  .title {
+    font-size: var(--title-size-600px);
+  }
+
+  .moldura-top {
+    width: 150px;
+  }
+
+  .moldura-bottom {
+    width: 150px;
+  }
+}
+
+@media (max-width: 430px) {
+  .divisor-icon {
+    width: 70vw;
+  }
+
+  .container {
+    width: calc(100% - 10px);
+  }
+
+  .container-margin {
+    margin: 0 5px;
+  }
+}
+
+@media (max-width: 340px) {
+  .title {
+    font-size: var(--title-size-340px);
+  }
+
+  .container {
+    width: calc(100% - 5px);
+  }
+
+  .moldura-top {
+    width: 120px;
+  }
+
+  .moldura-bottom {
+    width: 120px;
+  }
+
+  .container-margin {
+    margin: 2px;
+  }
 }
 
 /*====   PRATO DO DIA  ============================ */
 
 .pdd-header {
-  margin-bottom: 3.1rem;
+  padding-bottom: 30px;
+  padding-top: 50px;
+  overflow-x: hidden;
 }
 
 .pdd-header .title {
@@ -168,21 +364,28 @@ nav ul li a {
   color: var(--black);
   text-shadow: 2px 1px 3px rgba(0, 0, 0, 0.72);
   text-align: center;
-  margin-bottom: -12px;
+  top: 5px;
+  position: relative;
 }
 
 .subtitle {
   color: var(--laranja);
-  font-size: 1.5rem;
-  font-family: 'Bad Script', cursive;
+  font-size: 33px;
+  padding: 0 20px;
+  font-family: 'Italianno', cursive;
   text-align: center;
 }
 
-hr {
-  width: 27rem;
-  margin: 0 auto;
-
-  border-top: 1px solid black;
+.regua {
+  width: 50%;
+  height: 1px;
+  padding: 0;
+  display: block;
+  margin-top: 9px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 24px;
+  background-color: #000;
 }
 
 .pdd {
@@ -193,15 +396,8 @@ hr {
 .inf-pdd {
   width: 50%;
   position: relative;
+  padding: 0 30px;
   padding-bottom: 100px;
-}
-
-.inf-pdd::after {
-  content: url('assets/images/moldura-bottom.png');
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
 }
 
 .img-pdd {
@@ -213,22 +409,23 @@ hr {
 }
 
 .img-pdd img {
-  width: 420px;
-  height: 274.2px;
-  border-radius: 23px;
+  width: 85%;
+  height: fit-content;
+  border-radius: 10%;
   box-shadow: 6px 7px 3px 0px rgba(0, 0, 0, 0.5);
 }
 
-.inf-pdd .title {
+.inf-pdd .destaque {
   font-family: 'Italianno', cursive;
   font-weight: normal;
+  font-size: 34px;
   text-align: center;
   margin-bottom: -5px;
 }
 
 .inf-pdd p {
   font-family: 'Bad Script', cursive;
-  font-size: 1.3rem;
+  font-size: 17px;
   text-align: center;
 }
 
@@ -248,8 +445,67 @@ hr {
   border-radius: 13px;
   margin: 0 auto;
 
-  z-index: 100;
   display: flex;
+}
+
+@media (max-width: 670px) {
+  .pdd {
+    flex-direction: column-reverse;
+  }
+
+  .pdd-header {
+    padding-bottom: 17px;
+  }
+
+  .pdd-header .subtitle {
+    font-size: 30px;
+  }
+
+  .pdd-header .regua {
+    width: 75%;
+  }
+
+  .img-pdd {
+    width: 100%;
+    padding-bottom: 80px;
+  }
+
+  .inf-pdd {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: 40px;
+  }
+
+  .img-pdd img {
+    width: 70%;
+    box-shadow: 6px 7px 3px 0px rgba(0, 0, 0, 0.5);
+  }
+}
+
+@media (max-width: 500px) {
+  .inf-pdd {
+    width: 90%;
+  }
+
+  .img-pdd img {
+    width: 85%;
+  }
+
+  .pdd-header .subtitle {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 500px) {
+  .inf-pdd {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .img-pdd img {
+    width: 80%;
+  }
 }
 
 /*====   NOSSA CHEF  ============================ */
@@ -260,14 +516,14 @@ hr {
 }
 
 .chef {
-  width: 55vw;
+  width: 50%;
   padding-bottom: 25px;
 }
 
 .chef .title {
-  line-height: 1.2em;
+  line-height: 1.3em;
   padding-top: 22px;
-  margin-bottom: -5px;
+  overflow-y: hidden;
 }
 
 .chef-img-box {
@@ -281,6 +537,7 @@ hr {
   width: 70px;
   height: 70px;
   object-fit: cover;
+
   border-radius: 100%;
   border: 2px solid black;
 }
@@ -292,7 +549,7 @@ hr {
 }
 
 .chef-detalhes h3 {
-  font-size: 32px;
+  font-size: 27px;
   font-family: 'Bad Script', cursive;
   color: #f16a27;
   text-align: center;
@@ -305,22 +562,59 @@ hr {
 }
 
 .img-cozinha-box {
-  width: 45vw;
+  width: 50%;
   background-image: url('assets/images/chef-cozinha.jpeg');
   background-size: cover;
-  background-position: left;
+  background-position: 70%;
+  background-repeat: no-repeat;
 }
 
+@media (max-width: 800px) {
+  .nossa-chef {
+    flex-direction: column;
+  }
+
+  .chef {
+    width: 100%;
+  }
+
+  .img-cozinha-box {
+    height: 260px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 460px) {
+  .chef {
+    width: 100%;
+    padding: 0 10px;
+    padding-bottom: 22px;
+  }
+
+  .chef-img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .chef p {
+    font-size: 16px;
+  }
+
+  .img-cozinha-box {
+    height: 220px;
+    width: 100%;
+  }
+}
 /*====   QUALIDADES   ============================ */
 
 .qualidades {
   padding-top: 22px;
-  padding-bottom: 22px;
 }
 
 .qualidades-flex {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .qualidade {
@@ -329,6 +623,9 @@ hr {
   justify-content: center;
   padding: 0 17px;
   width: 33.333%;
+  min-width: 220px;
+  margin: 0 auto;
+  padding-bottom: 33px;
 }
 
 .qualidade p:first-of-type {
@@ -353,7 +650,21 @@ hr {
   margin: auto;
 }
 
-/*====   QUALIDADES   ============================ */
+.qualidade img:hover {
+  height: 110px;
+}
+
+@media (max-width: 400px) {
+  .qualidade img {
+    height: 90px;
+  }
+
+  .qualidade img:hover {
+    height: 99px;
+  }
+}
+
+/*====   DEPOIMENTOS   ============================ */
 
 .depoimentos {
   padding-top: 22px;
@@ -366,16 +677,19 @@ hr {
 .box-depoimentos {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
   padding-top: 22px;
 }
 
 .depoimento {
   width: 33.333%;
-  padding: 0 22px;
+  min-width: 220px;
+  margin: 0 auto;
+  padding: 0 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-bottom: 22px;
+  padding-bottom: 30px;
 }
 
 .box-foto-depoimento {
@@ -387,7 +701,7 @@ hr {
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  background-color: aqua;
+  background-color: rgba(75, 75, 75, 0.61);
 }
 
 .name {
@@ -406,6 +720,17 @@ hr {
 }
 
 .estrela {
-  width: 300px;
-  padding-top: 30px;
+  width: auto;
+  padding-top: 20px;
+}
+
+@media (max-width: 450px) {
+  .foto-depoimento {
+    width: 60px;
+    height: 60px;
+  }
+
+  .name {
+    font-size: 25px;
+  }
 }

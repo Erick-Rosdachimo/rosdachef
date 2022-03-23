@@ -38,6 +38,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 5px;
 }
 
 .footer {
@@ -55,14 +56,12 @@ footer p {
   display: flex;
   z-index: 100;
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+
+  height: 100px;
   border-bottom: 4px solid var(--menu-color);
 }
 
 nav {
-  height: 6.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -105,7 +104,6 @@ nav ul li a {
   background-image: url('../assets/images/background-contato.jpeg');
   height: 90vh;
   width: 100vw;
-  position: relative;
   background-size: cover;
 }
 
@@ -114,21 +112,125 @@ nav ul li a {
   height: 90vh;
 }
 
+nav.show .menu {
+  position: fixed;
+  background-color: var(--fundoclaro);
+  top: 0;
+  right: 0;
+  width: 60vw;
+  z-index: 9;
+  height: 100vh;
+}
+
+nav.show ul {
+  flex-direction: column;
+  padding-top: 67px;
+}
+
+nav.show ul li {
+  padding: 0;
+  text-align: center;
+  padding-bottom: 0px;
+}
+
+nav.show ul li:not(:first-child) {
+  padding-top: 20px;
+}
+
+nav.show ul li a {
+  color: var(--laranja);
+}
+
+.toggle {
+  font-size: 25px;
+  color: var(--menu-color);
+  cursor: pointer;
+}
+
+.show .icon-menu {
+  display: none;
+}
+
+nav.show {
+  position: relative;
+}
+
+.icon-close {
+  color: var(--laranja);
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show .icon-close {
+  visibility: visible;
+  opacity: 1;
+  z-index: 10;
+  position: fixed;
+}
+
+@media (min-width: 700px) {
+  .toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .menu {
+    display: none;
+  }
+
+  nav.show .menu {
+    display: block;
+  }
+
+  .icon-close {
+    display: none;
+  }
+
+  .show .icon-close {
+    right: 20px;
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .show .icon-close {
+    right: 10px;
+  }
+}
+@media (max-width: 430px) {
+  .show .icon-close {
+    right: 5px;
+  }
+
+  .footer p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 340px) {
+  .show .icon-close {
+    right: 2.5px;
+  }
+}
+
 .box-banner {
   color: var(--menu-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: calc(90vh - 100px);
+  text-align: center;
+  width: 100%;
 }
 
 .box-banner h1 {
   font-family: 'Bad Script', cursive;
-  font-weight: bold;
+  padding-bottom: 50px;
 }
 
-/*===================    PADRAO    =================== */
+/*====  PADRAO  ============================ */
 
 .moldura-top {
   width: 12.43rem;
@@ -146,18 +248,20 @@ nav ul li a {
 }
 
 .container {
-  width: 1000px;
-  margin: auto;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
 }
 
 .divisor {
-  width: 100vw;
+  width: 100%;
   height: 10vh;
   background: var(--fundoescuro);
+  overflow-x: hidden;
 }
 
 .divisor-section {
-  width: 100vw;
+  width: 100%;
   height: 17vh;
   background: var(--fundoescuro);
 }
@@ -178,9 +282,9 @@ nav ul li a {
 }
 
 .divisor-icon {
-  display: flex;
-  justify-content: center;
   margin: 0 auto;
+  display: block;
+  max-width: 100%;
 }
 
 .container-margin {
@@ -231,17 +335,21 @@ nav ul li a {
   }
 
   .container {
-    width: calc(100% - 22px);
+    width: calc(100% - 10px);
   }
 
   .container-margin {
-    margin: 0 10px;
+    margin: 0 5px;
   }
 }
 
 @media (max-width: 340px) {
   .title {
     font-size: var(--title-size-340px);
+  }
+
+  .container {
+    width: calc(100% - 5px);
   }
 
   .moldura-top {
@@ -253,10 +361,9 @@ nav ul li a {
   }
 
   .container-margin {
-    margin: 0 5px;
+    margin: 2px;
   }
 }
-
 /*===================    FORMS    =================== */
 
 .form .container {
@@ -478,6 +585,16 @@ input[type='submit']:hover {
 
 .box-icon-contact {
   display: flex;
+}
+
+.box-icon-contact:link {
+  pointer-events: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+.box-icon-contact:visited {
+  color: inherit;
 }
 
 .box-icon-contact i {

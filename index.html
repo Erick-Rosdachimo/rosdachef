@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="rosdachef.css" />
 
+    <link rel="stylesheet" href="../icomoon/style.css" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -21,9 +23,11 @@
         <div class="overlay">
           <header id="header">
             <nav class="container">
-              <a class="logo" href="#">Rosda<span>Chef</span></a>
+              <a class="logo" href="index.html">Rosda<span>Chef</span></a>
+              <div class="toggle icon-menu"></div>
+              <div class="toggle icon-close"></div>
               <div class="menu">
-                <ul class="grid">
+                <ul class="">
                   <li><a href="index.html">Home</a></li>
                   <li>
                     <a href="reservas/index.html">Reservas</a>
@@ -49,8 +53,8 @@
           <img class="moldura-top" src="assets/images/moldura.png" alt="" />
           <div class="pdd-header container">
             <h2 class="title">Prato do Dia</h2>
-            <h3 class="subtitle">Aqui os pratos do dia são sempre R$ 19 ,99</h3>
-            <hr />
+            <h3 class="subtitle">Aqui os pratos do dia são sempre R$19,99</h3>
+            <span class="regua"></span>
           </div>
         </div>
         <div class="pdd container">
@@ -58,10 +62,8 @@
             <img src="assets/images/prato-do-dia.jpg" alt="" />
           </div>
           <div class="inf-pdd">
-            <h2 class="title">Salada de Camarão</h2>
-            <div class="divisor-icon">
-              <img src="assets/images/divisor.png" alt="" />
-            </div>
+            <h2 class="destaque">Salada de Camarão</h2>
+            <img class="divisor-icon" src="assets/images/divisor.png" alt="" />
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit.
               Consectetur aut quia nobis excepturi
@@ -70,6 +72,11 @@
               <a class="btn" href="menu">Mais pratos</a>
             </div>
           </div>
+          <img
+            src="assets/images/moldura-bottom.png"
+            alt=""
+            class="moldura-bottom"
+          />
         </div>
       </section>
       <div class="divisor-section"></div>
@@ -197,5 +204,6 @@
         </p>
       </div>
     </footer>
+    <script src="main.js"></script>
   </body>
 </html>
