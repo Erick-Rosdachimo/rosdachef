@@ -12,6 +12,7 @@ a {
 
 ul {
   list-style: none;
+  padding-inline-start: 0px;
 }
 
 /*====  VARIABLES ============================ */
@@ -29,64 +30,31 @@ ul {
   --background-sobremesas: #834444;
 }
 
-/*===================    HEADER AND FOOTER    =================== */
+/*===================    HEADER BANNER FOOTER   =================== */
 
-footer {
-  border-top: 7px solid #5b5252;
-  height: 120px;
-  background-color: #443d3e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5px;
-}
-
-.footer {
-  color: var(--menu-color);
-}
-
-footer p {
-  font-size: 20px;
-  font-family: 'Italianno', cursive;
-  text-align: center;
-  line-height: 1.6em;
-}
+/* HEADER */
 
 #header {
-  display: flex;
-  z-index: 100;
   width: 100%;
-
-  height: 100px;
   border-bottom: 4px solid var(--menu-color);
+  transition: 0.3s;
 }
 
+#header:hover {
+  border-bottom-color: var(--laranja);
+  background-color: rgba(0, 0, 0, 0.837);
+}
+
+/*---------------- nav ---------------*/
+
 nav {
+  height: 6.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
-nav ul li:not(:first-child) {
-  padding-left: 2rem;
-}
-
-nav ul li {
-  padding-right: 4px;
-}
-
-nav ul {
-  display: flex;
-  flex-direction: row;
-}
-
-nav ul li a {
-  font-family: 'Italianno', cursive;
-  font-weight: bold;
-  font-size: 33px;
-  color: var(--menu-color);
-}
+/* logo */
 
 .logo {
   font-family: 'Italianno', cursive;
@@ -100,17 +68,30 @@ nav ul li a {
   color: var(--laranja);
 }
 
-.banner {
-  background-image: url('../assets/images/background-menu.jpeg');
-  height: 90vh;
-  width: 100vw;
-  background-size: cover;
+/* menu */
+
+nav ul {
+  display: flex;
 }
 
-.banner .overlay {
-  background-color: rgba(0, 0, 0, 0.58);
-  height: 90vh;
+nav ul li a {
+  position: relative;
+  padding-right: 4px;
+  padding-left: 8px;
 }
+
+nav ul li:not(:first-child) {
+  padding-left: 24px;
+}
+
+nav ul li a {
+  font-family: 'Italianno', cursive;
+  font-weight: bold;
+  font-size: 33px;
+  color: var(--menu-color);
+}
+
+/* show */
 
 nav.show .menu {
   position: fixed;
@@ -124,22 +105,59 @@ nav.show .menu {
 
 nav.show ul {
   flex-direction: column;
-  padding-top: 67px;
+  padding-top: 47px;
 }
 
 nav.show ul li {
   padding: 0;
   text-align: center;
-  padding-bottom: 0px;
 }
 
-nav.show ul li:not(:first-child) {
+nav.show ul li {
   padding-top: 20px;
 }
 
 nav.show ul li a {
   color: var(--laranja);
 }
+
+/* after */
+
+nav ul li:nth-child(3) a::after {
+  height: 75%;
+}
+
+nav ul li a::after {
+  content: '';
+  width: 3px;
+  height: 0%;
+  background-color: var(--laranja);
+  position: absolute;
+  left: 0;
+  margin-top: 3px;
+  transition: 0.4s;
+}
+
+nav ul li a:hover::after {
+  height: 75%;
+  transition: 0.4s;
+}
+
+/* banner */
+
+.banner {
+  background-image: url('../assets/images/background-menu.jpeg');
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+}
+
+.banner .overlay {
+  background-color: rgba(0, 0, 0, 0.521);
+  height: 90vh;
+}
+
+/* ICONS */
 
 .toggle {
   font-size: 25px;
@@ -151,21 +169,40 @@ nav.show ul li a {
   display: none;
 }
 
-nav.show {
-  position: relative;
-}
-
 .icon-close {
-  color: var(--laranja);
-  visibility: hidden;
-  opacity: 0;
+  display: none;
 }
 
 .show .icon-close {
-  visibility: visible;
-  opacity: 1;
+  color: var(--laranja);
+  display: block;
   z-index: 10;
   position: fixed;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 7px solid #5b5252;
+  height: 120px;
+  background-color: #443d3e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+}
+
+footer p {
+  font-size: 20px;
+  font-family: 'Italianno', cursive;
+  text-align: center;
+  line-height: 1.7em;
+  color: var(--menu-color);
+  padding: 5px;
+}
+
+footer a {
+  color: var(--laranja);
 }
 
 @media (min-width: 700px) {
@@ -190,6 +227,24 @@ nav.show {
   .show .icon-close {
     right: 20px;
     display: block;
+  }
+
+  nav ul li a::after {
+    width: 0%;
+    height: 3px;
+    bottom: 0px;
+    left: -10%;
+  }
+
+  nav ul li:nth-child(3) a::after {
+    width: 120%;
+    height: 3px;
+  }
+
+  nav ul li a:hover::after {
+    width: 120%;
+    height: 3px;
+    transition: 0.4s;
   }
 }
 
@@ -220,7 +275,7 @@ nav.show {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(90vh - 100px);
+  height: calc(90vh - 104px);
   text-align: center;
   width: 100%;
 }
@@ -371,18 +426,16 @@ nav.show {
     margin: 2px;
   }
 }
-/*===================    ESPECIALIDADES    =================== */
 
-.especialidades .container {
+/*===================  MODELO CARDAPIO  =================== */
+
+.cardapio-padrao .container {
   position: relative;
   padding-bottom: 100px;
 }
 
-.especialidades header {
-  padding-bottom: 29px;
-}
-
-.header-cardapio {
+.cardapio-padrao header {
+  padding-bottom: 37px;
   padding-top: 70px;
 }
 
@@ -400,7 +453,7 @@ nav.show {
 .carrossel-cardapio img {
   width: 220px;
   height: 420px;
-  border-radius: 63px 27px 63px 27px;
+  border-radius: 63px 27px;
   object-fit: cover;
   box-shadow: 6px 6px 5px 1px rgba(0, 0, 0, 0.55);
   position: absolute;
@@ -421,16 +474,14 @@ nav.show {
 }
 
 .prato img {
-  height: 90px;
-  width: 90px;
-  object-fit: cover;
-  object-position: center;
+  height: 80px;
+  width: 80px;
   border-radius: 17px;
 }
 
 .prato span {
   width: calc(100% - 100px);
-  padding-left: 5px;
+  padding: 0 15px;
 }
 
 .prato .nome {
@@ -440,113 +491,20 @@ nav.show {
 
 .prato .desc {
   font-size: 15px;
-  color: #3b3b3b;
   font-family: 'quicksand', sans-serif;
   font-weight: bold;
-  line-height: 1.7rem;
+  line-height: 1.4rem;
 }
 
 .box-pratos .regua {
-  width: 90%;
+  width: 93%;
   height: 1px;
   padding: 0;
   display: block;
-  margin-top: 9px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 24px;
-  background-color: #000;
+  margin: 4px auto 24px auto;
 }
 
-/*===================    SOBREMESAS    =================== */
-
-.section-sobremesa {
-  background-color: var(--background-sobremesas);
-}
-
-.sobremesas .title {
-  color: var(--menu-color);
-}
-
-.sobremesas .container {
-  position: relative;
-  padding-bottom: 100px;
-}
-
-.sobremesas header {
-  padding-bottom: 29px;
-  padding-top: 70px;
-}
-
-.header-cardapio div {
-  display: flex;
-  justify-content: center;
-}
-
-.carrossel-cardapio {
-  width: 240px;
-  position: relative;
-  height: 430px;
-}
-
-.carrossel-cardapio img {
-  width: 220px;
-  height: 420px;
-  border-radius: 63px 27px 63px 27px;
-  object-fit: cover;
-  box-shadow: 6px 6px 5px 1px rgba(0, 0, 0, 0.55);
-  position: absolute;
-  right: 10px;
-}
-
-.box-pratos {
-  width: calc(100% - 240px);
-  display: flex;
-  flex-direction: column;
-}
-
-.prato {
-  display: flex;
-  padding-bottom: 10px;
-  width: 100%;
-  justify-content: center;
-}
-
-.prato img {
-  height: 90px;
-  width: 90px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 17px;
-}
-
-.prato span {
-  width: calc(100% - 100px);
-}
-
-.sobremesas .prato .nome {
-  font-size: 38px;
-  font-family: 'Italianno', cursive;
-  color: var(--menu-color);
-}
-
-.sobremesas .prato .desc {
-  font-size: 15px;
-  color: #bfbfbf;
-  font-family: 'quicksand', sans-serif;
-  font-weight: bold;
-  line-height: 1.7rem;
-}
-
-.sobremesas .box-pratos .regua {
-  width: 90%;
-  height: 1px;
-  background-color: var(--menu-color);
-  margin-top: 9px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 24px;
-}
+/* responsividade */
 
 @media (max-width: 768px) {
   .carrossel-cardapio {
@@ -608,4 +566,36 @@ nav.show {
   .sobremesas .divisor-icon {
     width: 50vw;
   }
+}
+
+/*===================    ESPECIALIDADES    =================== */
+
+.prato .desc {
+  color: #3b3b3b;
+}
+
+.box-pratos .regua {
+  background-color: #000;
+}
+
+/*===================    SOBREMESAS    =================== */
+
+.section-sobremesa {
+  background-color: var(--background-sobremesas);
+}
+
+.sobremesas .title {
+  color: var(--menu-color);
+}
+
+.sobremesas .prato .nome {
+  color: var(--menu-color);
+}
+
+.sobremesas .prato .desc {
+  color: #bfbfbf;
+}
+
+.sobremesas .box-pratos .regua {
+  background-color: var(--menu-color);
 }

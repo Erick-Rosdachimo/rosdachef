@@ -12,6 +12,7 @@ a {
 
 ul {
   list-style: none;
+  padding-inline-start: 0px;
 }
 
 /*===================    VARIABLES    =================== */
@@ -29,64 +30,31 @@ ul {
   --background-sobremesas: #834444;
 }
 
-/*===================    HEADER AND FOOTER    =================== */
+/*===================    HEADER BANNER FOOTER   =================== */
 
-footer {
-  border-top: 7px solid #5b5252;
-  height: 120px;
-  background-color: #443d3e;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 5px;
-}
-
-.footer {
-  color: var(--menu-color);
-}
-
-footer p {
-  font-size: 20px;
-  font-family: 'Italianno', cursive;
-  text-align: center;
-  line-height: 1.6em;
-}
+/* HEADER */
 
 #header {
-  display: flex;
-  z-index: 100;
   width: 100%;
-
-  height: 100px;
   border-bottom: 4px solid var(--menu-color);
+  transition: 0.3s;
 }
 
+#header:hover {
+  border-bottom-color: var(--laranja);
+  background-color: rgba(0, 0, 0, 0.837);
+}
+
+/*---------------- nav ---------------*/
+
 nav {
+  height: 6.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
 }
 
-nav ul li:not(:first-child) {
-  padding-left: 2rem;
-}
-
-nav ul li {
-  padding-right: 4px;
-}
-
-nav ul {
-  display: flex;
-  flex-direction: row;
-}
-
-nav ul li a {
-  font-family: 'Italianno', cursive;
-  font-weight: bold;
-  font-size: 33px;
-  color: var(--menu-color);
-}
+/* logo */
 
 .logo {
   font-family: 'Italianno', cursive;
@@ -100,17 +68,30 @@ nav ul li a {
   color: var(--laranja);
 }
 
-.banner {
-  background-image: url('../assets/images/background-contato.jpeg');
-  height: 90vh;
-  width: 100vw;
-  background-size: cover;
+/* menu */
+
+nav ul {
+  display: flex;
 }
 
-.banner .overlay {
-  background-color: rgba(0, 0, 0, 0.58);
-  height: 90vh;
+nav ul li a {
+  position: relative;
+  padding-right: 4px;
+  padding-left: 8px;
 }
+
+nav ul li:not(:first-child) {
+  padding-left: 24px;
+}
+
+nav ul li a {
+  font-family: 'Italianno', cursive;
+  font-weight: bold;
+  font-size: 33px;
+  color: var(--menu-color);
+}
+
+/* show */
 
 nav.show .menu {
   position: fixed;
@@ -124,22 +105,59 @@ nav.show .menu {
 
 nav.show ul {
   flex-direction: column;
-  padding-top: 67px;
+  padding-top: 47px;
 }
 
 nav.show ul li {
   padding: 0;
   text-align: center;
-  padding-bottom: 0px;
 }
 
-nav.show ul li:not(:first-child) {
+nav.show ul li {
   padding-top: 20px;
 }
 
 nav.show ul li a {
   color: var(--laranja);
 }
+
+/* after */
+
+nav ul li:nth-child(4) a::after {
+  height: 75%;
+}
+
+nav ul li a::after {
+  content: '';
+  width: 3px;
+  height: 0%;
+  background-color: var(--laranja);
+  position: absolute;
+  left: 0;
+  margin-top: 3px;
+  transition: 0.4s;
+}
+
+nav ul li a:hover::after {
+  height: 75%;
+  transition: 0.4s;
+}
+
+/* banner */
+
+.banner {
+  background-image: url('../assets/images/background-contato.jpeg');
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+}
+
+.banner .overlay {
+  background-color: rgba(0, 0, 0, 0.37);
+  height: 90vh;
+}
+
+/* ICONS */
 
 .toggle {
   font-size: 25px;
@@ -151,21 +169,40 @@ nav.show ul li a {
   display: none;
 }
 
-nav.show {
-  position: relative;
-}
-
 .icon-close {
-  color: var(--laranja);
-  visibility: hidden;
-  opacity: 0;
+  display: none;
 }
 
 .show .icon-close {
-  visibility: visible;
-  opacity: 1;
+  color: var(--laranja);
+  display: block;
   z-index: 10;
   position: fixed;
+}
+
+/* FOOTER */
+
+footer {
+  border-top: 7px solid #5b5252;
+  height: 120px;
+  background-color: #443d3e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+}
+
+footer p {
+  font-size: 20px;
+  font-family: 'Italianno', cursive;
+  text-align: center;
+  line-height: 1.7em;
+  color: var(--menu-color);
+  padding: 5px;
+}
+
+footer a {
+  color: var(--laranja);
 }
 
 @media (min-width: 700px) {
@@ -190,6 +227,24 @@ nav.show {
   .show .icon-close {
     right: 20px;
     display: block;
+  }
+
+  nav ul li a::after {
+    width: 0%;
+    height: 3px;
+    bottom: 0px;
+    left: -10%;
+  }
+
+  nav ul li:nth-child(4) a::after {
+    width: 120%;
+    height: 3px;
+  }
+
+  nav ul li a:hover::after {
+    width: 120%;
+    height: 3px;
+    transition: 0.4s;
   }
 }
 
@@ -220,7 +275,7 @@ nav.show {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: calc(90vh - 100px);
+  height: calc(90vh - 104px);
   text-align: center;
   width: 100%;
 }
@@ -364,30 +419,48 @@ nav.show {
     margin: 2px;
   }
 }
-/*===================    FORMS    =================== */
+/*=================  FORMS  =================== */
 
 .form .container {
   position: relative;
   padding-bottom: 100px;
 }
 
+.box-placa {
+  padding-bottom: 20px;
+  padding-top: 5px;
+}
+
+.placa {
+  color: white;
+  font-family: 'Italianno', cursive;
+  font-size: 32px;
+  text-align: center;
+
+  width: calc(100% - 60px);
+  padding: 12px 0;
+  background: var(--laranja);
+
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* form header */
+
 .header .title {
   margin-bottom: -5px;
   padding-top: 70px;
 }
 
-.box-form-horario {
-  display: flex;
-  padding-top: 60px;
-}
+/* form */
 
 .box-form {
   width: 50%;
 }
 
 form {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin: 0 50px;
 }
 
 .box-form label {
@@ -406,34 +479,26 @@ form textarea:focus {
   outline: 0;
 }
 
-#name-mensagem,
-#email-mensagem,
-form textarea {
-  padding-left: 10px;
-  padding-right: 10px;
-  width: 95%;
+.input-block {
+  padding: 7px 10px;
+  margin-left: 2.5%;
   margin-bottom: 15px;
+
+  width: 95%;
+
   border: none;
   border-bottom: 1px solid rgba(106, 106, 106, 0.527);
-  padding-top: 7px;
-  padding-bottom: 7px;
   border-radius: 4px;
   background-color: #ffd093;
   font-family: Arial, Helvetica, sans-serif;
-  margin-left: 2.5%;
 }
 
-#name-mensagem:hover,
-#email-mensagem:hover,
-form textarea:hover,
-#name-mensagem:focus,
-#email-mensagem:focus,
-form textarea:focus {
+.input-block:focus,
+.input-block:hover {
   background-color: #f7c078;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.741);
   width: 97%;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding: 8px 10px;
 }
 
 .box-form textarea {
@@ -443,10 +508,11 @@ form textarea:focus {
 
 input[type='submit'] {
   color: var(--menu-color);
-  background-color: var(--laranja);
   font-family: 'bad script', cursive;
   font-size: 18px;
   font-weight: bold;
+
+  background-color: var(--laranja);
   padding: 1px 25px;
   border-radius: 13px;
   display: block;
@@ -458,51 +524,31 @@ input[type='submit']:hover {
   background-color: var(--laranja-claro);
 }
 
+/* horario */
+
 .box-horario {
   width: 50%;
 }
 
-.box-horario .horario {
+.horario {
   width: 260px;
   display: flex;
   justify-content: space-between;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  border-bottom: 1px solid black;
+  margin: 0 auto;
   margin-top: 19px;
-}
+  border-bottom: 1px solid black;
 
-.box-horario .horario p,
-.horario span {
-  display: inline;
   font-family: 'Italianno', cursive;
   font-size: 1.5rem;
   padding-right: 5px;
 }
 
-.placa {
-  color: white;
-  font-family: 'Italianno', cursive;
-  font-size: 32px;
-  width: calc(100% - 60px);
-  padding-bottom: 12px;
-  padding-top: 12px;
-  background: var(--laranja);
-  display: block;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 8px;
-  box-shadow: 0px 1px 4px 2px rgba(0, 0, 0, 0.5);
+.box-form-horario {
+  display: flex;
+  padding-top: 60px;
 }
 
-.box-form .box-placa,
-.box-horario .box-placa {
-  padding-bottom: 20px;
-  padding-top: 5px;
-}
+/* responsividade */
 
 @media (max-width: 900) {
   form {

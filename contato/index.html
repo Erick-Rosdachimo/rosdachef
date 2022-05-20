@@ -47,7 +47,9 @@
           </div>
         </div>
       </section>
+
       <div class="divisor"></div>
+
       <section class="form section-clara">
         <div class="container">
           <img src="../assets/images/moldura.png" alt="" class="moldura-top" />
@@ -71,6 +73,7 @@
                 <label for="name-mensagem">Nome<span>*</span></label
                 ><br />
                 <input
+                  class="input-block"
                   required
                   type="text"
                   name="name"
@@ -82,10 +85,12 @@
                 <label for="email-mensagem">E-mail<span>*</span></label
                 ><br />
                 <input
+                  class="input-block"
                   type="email"
                   name="email"
                   id="email-mensagem"
                   placeholder="Seu e-mail"
+                  required
                 /><br />
 
                 <!-- textarea comentario-->
@@ -93,17 +98,23 @@
                   >Mensagem ou comentario<span>*</span></label
                 ><br />
                 <textarea
+                  class="input-block"
                   name="comentario"
                   id="comentario"
                   cols="30"
                   rows="15"
+                  required
                   placeholder="Deixe aqui sua mensagem para nos!"
                 ></textarea>
 
                 <input type="submit" value="Enviar" />
               </form>
-              <!-- FIM FORM -->
             </div>
+
+            <!-- FIM FORM -->
+
+            <!-- HORARIO -->
+
             <div class="box-horario">
               <div class="box-placa">
                 <p class="placa">Horário de Funcionamento</p>
@@ -138,6 +149,7 @@
                 <span>10h as 22h</span>
               </div>
             </div>
+            <!-- FIM HORARIO -->
           </div>
           <img
             class="moldura-bottom"
@@ -176,7 +188,12 @@
       <div class="footer">
         <p>
           Av. Arnaldo Cogumelo 689 SP <br />
-          Copyright © 2022 Portfólio - Érick e Sarah
+          Portfólio - Feito por:
+          <a
+            href="https://erick-rosdachimo.github.io/portifolio/"
+            target="blank"
+            >Érick Rosdachimo</a
+          >
         </p>
       </div>
     </footer>
