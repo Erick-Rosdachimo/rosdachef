@@ -19,43 +19,112 @@
     />
   </head>
   <body>
-    <main>
-      <section class="banner">
-        <div class="overlay">
-          <header id="header">
-            <nav class="container">
-              <a class="logo" href="index.html">Rosda<span>Chef</span></a>
-              <div class="toggle icon-menu"></div>
-              <div class="toggle icon-close"></div>
-              <div class="menu">
-                <ul class="">
-                  <li><a href="../index.html">Home</a></li>
-                  <li>
-                    <a href="../reservas/">Reservas</a>
-                  </li>
-                  <li>
-                    <a href="../menu/index.html">Cardápio</a>
-                  </li>
-                  <li>
-                    <a href="index.html">Contato</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-          </header>
-          <div class="box-banner">
-            <h1 class="title">Reservas</h1>
-          </div>
-        </div>
-      </section>
-      <div class="divisor"></div>
-      <div class="alerta">
-        <div class="aviso">
-          <p>Página em construção!</p>
-          <a href="../index.html">Voltar</a>
+    <section class="banner">
+      <div class="overlay">
+        <header id="header">
+          <nav class="container">
+            <a class="logo" href="index.html">Rosda<span>Chef</span></a>
+            <div class="toggle icon-menu"></div>
+            <div class="toggle icon-close"></div>
+            <div class="menu">
+              <ul class="">
+                <li><a href="../index.html">Home</a></li>
+                <li>
+                  <a href="../reservas/">Reservas</a>
+                </li>
+                <li>
+                  <a href="../menu/index.html">Cardápio</a>
+                </li>
+                <li>
+                  <a href="../contato/index.html">Contato</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+        <div class="box-banner">
+          <h1 class="title">Reservas</h1>
         </div>
       </div>
-    </main>
+    </section>
+
+    <div class="divisor"></div>
+    <!--DIVISOR -->
+
+    <section class="form-reserva">
+      <div class="container fundo-claro">
+        <img class="moldura-top" src="../assets/images/moldura.png" alt="" />
+        <img
+          src="../assets/images/moldura-bottom.png"
+          alt=""
+          class="moldura-bottom"
+        />
+        <header>
+          <h1 class="title">Faça sua reserva!</h1>
+          <img class="divisor-icon" src="../assets/images/divisor.png" alt="" />
+        </header>
+        <main>
+          <form id="reserva" class="container-margin" method="get">
+            <section class="corpo-form">
+              <fieldset class="info" name="dados">
+                <legend>
+                  <div class="box-placa">
+                    <p class="placa">Informações pessoais</p>
+                  </div>
+                </legend>
+                <label for="name">Nome</label>
+                <input
+                  placeholder="Digite seu nome..."
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                />
+                <label for="email">E-mail</label>
+                <input
+                  placeholder="Digite seu e-mail"
+                  type="email"
+                  name="email"
+                  id="email"
+                  required
+                />
+              </fieldset>
+              <fieldset class="mesa" name="mesa-horario">
+                <legend>
+                  <div class="box-placa">
+                    <p class="placa">Mesa e horário</p>
+                  </div>
+                </legend>
+                <label for="mesa">Escolha sua mesa</label>
+                <select required name="mesa" id="mesa">
+                  <option value="">Selecione sua mesa</option>
+                  <option value="1">Mesa 1 - 2 lugares</option>
+                  <option value="2">Mesa 1 - 2 lugares</option>
+                  <option value="3">Mesa 1 - 2 lugares</option>
+                  <option value="4">Mesa 1 - 2 lugares</option>
+                  <option value="5">Mesa 1 - 2 lugares</option>
+                  <option value="6">Mesa 1 - 2 lugares</option>
+                </select>
+                <label for="dia"> Qual será o dia </label>
+                <input required type="date" name="dia" id="dia" />
+                <label for="hora">Em que hora?</label>
+                <input
+                  value="00:00"
+                  required
+                  type="time"
+                  name="hora"
+                  id="hora"
+                />
+              </fieldset>
+              <div class="area-btn">
+                <input type="submit" value="Concluir" />
+              </div>
+            </section>
+          </form>
+        </main>
+      </div>
+    </section>
+
     <footer>
       <div class="footer">
         <p>
