@@ -146,7 +146,7 @@ nav ul li a:hover::after {
 /* banner */
 
 .banner {
-  background-image: url('../assets/images/background-menu.jpeg');
+  background-image: url('assets-menu/background-menu.jpeg');
   height: 90vh;
   width: 100%;
   background-size: cover;
@@ -353,6 +353,7 @@ footer a {
   margin: 0 40px;
   display: flex;
   padding-bottom: 20px;
+  align-items: center;
 }
 
 @media (max-width: 1040px) {
@@ -431,7 +432,7 @@ footer a {
 
 .cardapio-padrao .container {
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 130px;
 }
 
 .cardapio-padrao header {
@@ -445,19 +446,18 @@ footer a {
 }
 
 .carrossel-cardapio {
-  width: 240px;
+  width: 220px;
   position: relative;
-  height: 430px;
+  height: 420px;
+  box-shadow: 6px 6px 5px 1px rgba(0, 0, 0, 0.55);
+  border-radius: 63px 27px;
+  overflow-y: hidden;
 }
 
 .carrossel-cardapio img {
   width: 220px;
   height: 420px;
-  border-radius: 63px 27px;
   object-fit: cover;
-  box-shadow: 6px 6px 5px 1px rgba(0, 0, 0, 0.55);
-  position: absolute;
-  right: 10px;
 }
 
 .box-pratos {
@@ -477,6 +477,7 @@ footer a {
   height: 80px;
   width: 80px;
   border-radius: 17px;
+  object-fit: cover;
 }
 
 .prato span {
@@ -598,4 +599,69 @@ footer a {
 
 .sobremesas .box-pratos .regua {
   background-color: var(--menu-color);
+}
+
+.sobremesas .box-carrossel {
+  width: 880px;
+  display: flex;
+  animation-name: carrossel-cardapio;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes carrossel-cardapio {
+  0% {
+    margin-left: 0;
+  }
+  30% {
+    margin-left: 0;
+  }
+  33% {
+    margin-left: -100%;
+  }
+  63% {
+    margin-left: -100%;
+  }
+  66% {
+    margin-left: -200%;
+  }
+  96% {
+    margin-left: -200%;
+  }
+  100% {
+    margin-left: -300%;
+  }
+}
+
+.box-btn{
+  position: absolute;
+  bottom: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: grid;
+  justify-content: center;
+  grid-template-columns: auto auto;
+}
+
+.btn {
+  color: white;
+  background-color: var(--fundoescuro);
+  border: none;
+  border-radius: 13px;
+  padding: 1px 20px;
+  width: 110px;
+  font-family: 'bad script', cursive;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-left: 8px;
+  margin-right:8px;
+}
+
+.sumir{
+  display: none;
+}
+
+.sobremesas .divisor-icon{
+  margin-bottom: 25px;
 }
