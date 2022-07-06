@@ -1,4 +1,4 @@
-var pratos = [
+let pratos:{nome:string, desc:string,img:string}[] = [
   {
     nome: 'Macaron - R$15,00',
     desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora placeat ab beatae neque, facilis impedit',
@@ -45,26 +45,24 @@ var pratos = [
     img: 'assets-menu/milkshake-frutas.jpg'
   }
 ]
-var boxAdd = 0
-var boxVisiveis = 0
-var pratosUsados = 0
-var imgCarrossel = 0
+var boxAdd:number = 0
+var boxVisiveis:number = 0
+var pratosUsados:number = 0
+var imgCarrossel:number = 0
 
-function adicionar() {
+function adicionar():void {
   boxAdd = boxAdd + 1
   boxVisiveis = boxVisiveis + 1
   ativarBtn()
 
-  document.getElementById('container-sobre').innerHTML =
-    document.getElementById('container-sobre').innerHTML +
-    `<div>
-      <img
+  document.getElementById('container-sobre')!.innerHTML =
+    document.getElementById('container-sobre')!.innerHTML +
+    `<img
        src="../assets/images/divisor.png"
        alt=""
-      class="divisor-icon"
+      class="divisor-icon divisor-img"
      />
-    </div>
-    <div class="container-margin teste">
+    <div class="container-margin ">
     <div class="box-pratos">
       <div class="prato">
         <img src="${pratos[pratosUsados].img}" alt="" />
@@ -95,21 +93,24 @@ function adicionar() {
       <span class="regua"></span>
     </div>
     <div class="carrossel-cardapio">
-      <img
-        src="assets-menu/foto-especialidades-carrossel-1.jpg"
-        alt=""
-      />
+      <div class="box-carrossel">
+        <img src="${pratos[pratosUsados].img}" alt=""/>
+        <img src="${pratos[pratosUsados +1 ].img}" alt=""/>
+        <img src="${pratos[pratosUsados +2 ].img}" alt=""/>
+        <img src="${pratos[pratosUsados].img}" alt=""/>
+      </div>
     </div>
   </div>`
   pratosUsados = pratosUsados + 3
 }
 
-function ativarBtn() {
-  var quantPratos = pratos.length / 3
-  const verMenos = document.getElementById('ver-menos')
+function ativarBtn():void {
+  var quantPratos:number = pratos.length / 3
+  const verMenos = document.getElementById('ver-menos')!
+  const verMais = document.getElementById('ver-mais')!
 
   if (boxVisiveis == quantPratos) {
-    document.getElementById('ver-mais').classList.add('sumir')
+    verMais.classList.add('sumir')
   }
 
   if (boxVisiveis >= 1) {
@@ -119,21 +120,22 @@ function ativarBtn() {
   if (boxVisiveis == 0) {
     verMenos.classList.add('sumir')
   }
+
+  if(boxVisiveis < quantPratos){
+    verMais.classList.remove('sumir')
+  }
 }
 
 function retirar() {
-  for (var i = boxAdd; i > 0; i = i - 1) {
-    if (
-      document.querySelectorAll('.sobremesas .container-margin')[i].style
-        .display == 'none'
-    ) {
-    } else {
-      document.querySelectorAll('.sobremesas .container-margin')[
-        i
-      ].style.display = 'none'
-      boxVisiveis = boxVisiveis - 1
-      i = 0
-    }
-  }
+  
+  let contMargin = document.querySelectorAll('.sobremesas .container-margin'); 
+  let contAtual = contMargin[boxVisiveis] as HTMLElement;
+  let divisorImg = document.querySelectorAll('.sobremesas .divisor-img');
+  let divisorAtual = divisorImg[boxVisiveis - 1] as HTMLElement
+  divisorAtual.style.display = 'none'
+  contAtual.style.display = 'none'
+  
+  
+  boxVisiveis = boxVisiveis - 1
   ativarBtn()
 }
