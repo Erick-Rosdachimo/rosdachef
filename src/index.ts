@@ -1,4 +1,4 @@
-let pratos:{nome:string, desc:string,img:string}[] = [
+var pratos:{nome:string, desc:string, img:string}[] = [
   {
     nome: 'Macaron - R$15,00',
     desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora placeat ab beatae neque, facilis impedit',
@@ -48,14 +48,18 @@ let pratos:{nome:string, desc:string,img:string}[] = [
 var boxAdd:number = 0
 var boxVisiveis:number = 0
 var pratosUsados:number = 0
-var imgCarrossel:number = 0
 
 function adicionar():void {
-  boxAdd = boxAdd + 1
-  boxVisiveis = boxVisiveis + 1
-  ativarBtn()
 
-  document.getElementById('container-sobre')!.innerHTML =
+  let BoxDisponiveis:number = pratos.length / 3
+  let contMargin = document.querySelectorAll('.sobremesas .container-margin'); 
+  let contAtual = contMargin[boxVisiveis + 1] as HTMLElement;
+  let divisorImg = document.querySelectorAll('.sobremesas .divisor-img');
+  let divisorAtual = divisorImg[boxVisiveis] as HTMLElement
+
+  
+  if(boxVisiveis == boxAdd){
+    document.getElementById('container-sobre')!.innerHTML =
     document.getElementById('container-sobre')!.innerHTML +
     `<img
        src="../assets/images/divisor.png"
@@ -101,7 +105,15 @@ function adicionar():void {
       </div>
     </div>
   </div>`
+  boxAdd = boxAdd + 1
   pratosUsados = pratosUsados + 3
+  }else{
+    divisorAtual.style.display = 'block'
+    contAtual.style.display = 'flex'
+  }
+  
+  boxVisiveis = boxVisiveis + 1
+  ativarBtn()
 }
 
 function ativarBtn():void {

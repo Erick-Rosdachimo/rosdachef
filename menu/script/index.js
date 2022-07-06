@@ -1,5 +1,5 @@
 "use strict";
-let pratos = [
+var pratos = [
     {
         nome: 'Macaron - R$15,00',
         desc: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempora placeat ab beatae neque, facilis impedit',
@@ -49,14 +49,16 @@ let pratos = [
 var boxAdd = 0;
 var boxVisiveis = 0;
 var pratosUsados = 0;
-var imgCarrossel = 0;
 function adicionar() {
-    boxAdd = boxAdd + 1;
-    boxVisiveis = boxVisiveis + 1;
-    ativarBtn();
-    document.getElementById('container-sobre').innerHTML =
-        document.getElementById('container-sobre').innerHTML +
-            `<img
+    let BoxDisponiveis = pratos.length / 3;
+    let contMargin = document.querySelectorAll('.sobremesas .container-margin');
+    let contAtual = contMargin[boxVisiveis + 1];
+    let divisorImg = document.querySelectorAll('.sobremesas .divisor-img');
+    let divisorAtual = divisorImg[boxVisiveis];
+    if (boxVisiveis == boxAdd) {
+        document.getElementById('container-sobre').innerHTML =
+            document.getElementById('container-sobre').innerHTML +
+                `<img
        src="../assets/images/divisor.png"
        alt=""
       class="divisor-icon divisor-img"
@@ -100,7 +102,15 @@ function adicionar() {
       </div>
     </div>
   </div>`;
-    pratosUsados = pratosUsados + 3;
+        boxAdd = boxAdd + 1;
+        pratosUsados = pratosUsados + 3;
+    }
+    else {
+        divisorAtual.style.display = 'block';
+        contAtual.style.display = 'flex';
+    }
+    boxVisiveis = boxVisiveis + 1;
+    ativarBtn();
 }
 function ativarBtn() {
     var quantPratos = pratos.length / 3;
