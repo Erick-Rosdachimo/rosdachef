@@ -432,7 +432,7 @@ footer a {
 
 .cardapio-padrao .container {
   position: relative;
-  padding-bottom: 130px;
+  padding-bottom: 170px;
 }
 
 .cardapio-padrao header {
@@ -635,7 +635,7 @@ footer a {
 
 .box-btn{
   position: absolute;
-  bottom: 70px;
+  bottom: 130px;
   left: 50%;
   transform: translateX(-50%);
   display: grid;
@@ -648,14 +648,15 @@ footer a {
   background-color: var(--fundoescuro);
   border: none;
   border-radius: 13px;
-  padding: 1px 20px;
-  width: 110px;
+  padding: 2px 10px;
+  width: 100px;
   font-family: 'bad script', cursive;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   display: block;
-  margin-left: 8px;
-  margin-right:8px;
+  margin-left: 4px;
+  margin-right:4px;
+  z-index: 5;
 }
 
 .sumir{
@@ -664,4 +665,11 @@ footer a {
 
 .sobremesas .divisor-icon{
   margin-bottom: 25px;
+}
+
+@media(max-width:420px){
+  .btn{
+    font-size: 13px;
+    width: 73px;
+  }
 }
