@@ -50,58 +50,14 @@ var boxAdd = 0;
 var boxVisiveis = 0;
 var pratosUsados = 0;
 function adicionar() {
-    let BoxDisponiveis = pratos.length / 3;
-    let contMargin = document.querySelectorAll('.sobremesas .container-margin');
-    let contAtual = contMargin[boxVisiveis + 1];
-    let divisorImg = document.querySelectorAll('.sobremesas .divisor-img');
-    let divisorAtual = divisorImg[boxVisiveis];
+    var contMargin = document.querySelectorAll('.sobremesas .container-margin');
+    var contAtual = contMargin[boxVisiveis + 1];
+    var divisorImg = document.querySelectorAll('.sobremesas .divisor-img');
+    var divisorAtual = divisorImg[boxVisiveis];
     if (boxVisiveis == boxAdd) {
         document.getElementById('container-sobre').innerHTML =
             document.getElementById('container-sobre').innerHTML +
-                `<img
-       src="../assets/images/divisor.png"
-       alt=""
-      class="divisor-icon divisor-img"
-     />
-    <div class="container-margin ">
-    <div class="box-pratos">
-      <div class="prato">
-        <img src="${pratos[pratosUsados].img}" alt="" />
-        <span>
-          <p class="nome">${pratos[pratosUsados].nome}</p>
-          <p class="desc">${pratos[pratosUsados].desc}
-          </p>
-        </span>
-      </div>
-      <span class="regua"></span>
-      <div class="prato">
-      <img src="${pratos[pratosUsados + 1].img}" alt="" />
-      <span>
-        <p class="nome">${pratos[pratosUsados + 1].nome}</p>
-        <p class="desc">${pratos[pratosUsados + 1].desc}
-        </p>
-      </span>
-    </div>
-      <span class="regua"></span>
-      <div class="prato">
-      <img src="${pratos[pratosUsados + 2].img}" alt="" />
-      <span>
-        <p class="nome">${pratos[pratosUsados + 2].nome}</p>
-        <p class="desc">${pratos[pratosUsados + 2].desc}
-        </p>
-      </span>
-    </div>
-      <span class="regua"></span>
-    </div>
-    <div class="carrossel-cardapio">
-      <div class="box-carrossel">
-        <img src="${pratos[pratosUsados].img}" alt=""/>
-        <img src="${pratos[pratosUsados + 1].img}" alt=""/>
-        <img src="${pratos[pratosUsados + 2].img}" alt=""/>
-        <img src="${pratos[pratosUsados].img}" alt=""/>
-      </div>
-    </div>
-  </div>`;
+                "<img\n       src=\"../assets/images/divisor.png\"\n       alt=\"\"\n      class=\"divisor-icon divisor-img\"\n     />\n    <div class=\"container-margin \">\n    <div class=\"box-pratos\">\n      <div class=\"prato\">\n        <img src=\"".concat(pratos[pratosUsados].img, "\" alt=\"\" />\n        <span>\n          <p class=\"nome\">").concat(pratos[pratosUsados].nome, "</p>\n          <p class=\"desc\">").concat(pratos[pratosUsados].desc, "\n          </p>\n        </span>\n      </div>\n      <span class=\"regua\"></span>\n      <div class=\"prato\">\n      <img src=\"").concat(pratos[pratosUsados + 1].img, "\" alt=\"\" />\n      <span>\n        <p class=\"nome\">").concat(pratos[pratosUsados + 1].nome, "</p>\n        <p class=\"desc\">").concat(pratos[pratosUsados + 1].desc, "\n        </p>\n      </span>\n    </div>\n      <span class=\"regua\"></span>\n      <div class=\"prato\">\n      <img src=\"").concat(pratos[pratosUsados + 2].img, "\" alt=\"\" />\n      <span>\n        <p class=\"nome\">").concat(pratos[pratosUsados + 2].nome, "</p>\n        <p class=\"desc\">").concat(pratos[pratosUsados + 2].desc, "\n        </p>\n      </span>\n    </div>\n      <span class=\"regua\"></span>\n    </div>\n    <div class=\"carrossel-cardapio\">\n      <div class=\"box-carrossel\">\n        <img src=\"").concat(pratos[pratosUsados].img, "\" alt=\"\"/>\n        <img src=\"").concat(pratos[pratosUsados + 1].img, "\" alt=\"\"/>\n        <img src=\"").concat(pratos[pratosUsados + 2].img, "\" alt=\"\"/>\n        <img src=\"").concat(pratos[pratosUsados].img, "\" alt=\"\"/>\n      </div>\n    </div>\n  </div>");
         boxAdd = boxAdd + 1;
         pratosUsados = pratosUsados + 3;
     }
@@ -114,8 +70,8 @@ function adicionar() {
 }
 function ativarBtn() {
     var quantPratos = pratos.length / 3;
-    const verMenos = document.getElementById('ver-menos');
-    const verMais = document.getElementById('ver-mais');
+    var verMenos = document.getElementById('ver-menos');
+    var verMais = document.getElementById('ver-mais');
     if (boxVisiveis == quantPratos) {
         verMais.classList.add('sumir');
     }
@@ -130,10 +86,10 @@ function ativarBtn() {
     }
 }
 function retirar() {
-    let contMargin = document.querySelectorAll('.sobremesas .container-margin');
-    let contAtual = contMargin[boxVisiveis];
-    let divisorImg = document.querySelectorAll('.sobremesas .divisor-img');
-    let divisorAtual = divisorImg[boxVisiveis - 1];
+    var contMargin = document.querySelectorAll('.sobremesas .container-margin');
+    var contAtual = contMargin[boxVisiveis];
+    var divisorImg = document.querySelectorAll('.sobremesas .divisor-img');
+    var divisorAtual = divisorImg[boxVisiveis - 1];
     divisorAtual.style.display = 'none';
     contAtual.style.display = 'none';
     boxVisiveis = boxVisiveis - 1;

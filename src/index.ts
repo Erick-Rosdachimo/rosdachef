@@ -50,8 +50,6 @@ var boxVisiveis:number = 0
 var pratosUsados:number = 0
 
 function adicionar():void {
-
-  let BoxDisponiveis:number = pratos.length / 3
   let contMargin = document.querySelectorAll('.sobremesas .container-margin'); 
   let contAtual = contMargin[boxVisiveis + 1] as HTMLElement;
   let divisorImg = document.querySelectorAll('.sobremesas .divisor-img');
@@ -139,15 +137,12 @@ function ativarBtn():void {
 }
 
 function retirar() {
-  
   let contMargin = document.querySelectorAll('.sobremesas .container-margin'); 
   let contAtual = contMargin[boxVisiveis] as HTMLElement;
   let divisorImg = document.querySelectorAll('.sobremesas .divisor-img');
   let divisorAtual = divisorImg[boxVisiveis - 1] as HTMLElement
   divisorAtual.style.display = 'none'
   contAtual.style.display = 'none'
-  
-  
   boxVisiveis = boxVisiveis - 1
   ativarBtn()
 }
